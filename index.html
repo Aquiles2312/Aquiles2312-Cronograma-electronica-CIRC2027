@@ -653,7 +653,7 @@ const rawPhases = [
            }
            
            // 2. Encontrar Entregables en esta fecha
-           const currentDeliverables = JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
+           const currentDeliverables = getStoredDeliverables();
            let activeDelivs = currentDeliverables.filter(d => d.date === clickedDateStr);
            
            if(activeDelivs.length > 0) {
@@ -697,7 +697,7 @@ const rawPhases = [
           let allEvents = [];
           
           // INYECTAR SOLO ENTREGABLES (PUNTOS)
-          const currentDeliverables = JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
+          const currentDeliverables = getStoredDeliverables();
           currentDeliverables.forEach(d => {
              // Colored dot indicator
              let clr = '#ffc107'; // en-proceso
@@ -1731,7 +1731,46 @@ const initialDeliverables = [
 
 ];
 
-    let deliverables = JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
+    // =========================================================
+    // SINCRONIZACIÓN AUTOMÁTICA DE DATOS
+    // -----------------------------------------------------------
+    // El navegador guarda los cambios de estado (Finalizado / En
+    // Proceso / reprogramaciones) en localStorage para que no se
+    // pierdan al recargar la página. El problema es que si luego
+    // TÚ editas las fechas dentro de "initialDeliverables" en el
+    // código, el navegador seguía usando los datos viejos que ya
+    // tenía guardados y nunca se enteraba de las fechas nuevas.
+    //
+    // Esta función calcula una "huella" (hash) de initialDeliverables.
+    // Si esa huella no coincide con la que quedó guardada la última
+    // vez, significa que el código cambió, así que se descartan los
+    // datos viejos del navegador y se cargan los nuevos de tu código.
+    // Si no cambiaste nada, respeta los cambios de estado guardados.
+    // =========================================================
+    function hashDeliverables(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+      }
+      return hash.toString();
+    }
+
+    const CURRENT_DATA_HASH = hashDeliverables(JSON.stringify(initialDeliverables));
+
+    function getStoredDeliverables() {
+      const storedHash = localStorage.getItem('circ_deliverables_hash');
+      if (storedHash !== CURRENT_DATA_HASH) {
+        // Las fechas/entregables del código cambiaron: se reinicia el localStorage con los datos nuevos
+        const fresh = JSON.parse(JSON.stringify(initialDeliverables));
+        localStorage.setItem('circ_deliverables', JSON.stringify(fresh));
+        localStorage.setItem('circ_deliverables_hash', CURRENT_DATA_HASH);
+        return fresh;
+      }
+      return JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
+    }
+
+    let deliverables = getStoredDeliverables();
 
     function renderTable() {
         const container = document.getElementById('tablesContainer');
