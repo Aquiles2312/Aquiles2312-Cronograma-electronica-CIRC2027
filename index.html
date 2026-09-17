@@ -423,96 +423,196 @@ const competitionMidnight = new Date(
       
       var calendarEl = document.getElementById('calendar');
       
+var calendarEl = document.getElementById('calendar');
+      
 const rawPhases = [
-    {
-        id: "phase_01",
-        title: "Requerimientos y análisis",
-        start: "2026-09-16",
-        end: "2026-09-20"
-    },
-    {
-        id: "phase_02",
-        title: "Estudios conceptuales",
-        start: "2026-09-21",
-        end: "2026-10-10"
-    },
-    {
-        id: "phase_03",
-        title: "Arquitectura del sistema",
-        start: "2026-10-11",
-        end: "2026-10-24"
-    },
-    {
-        id: "phase_04",
-        title: "Diseño preliminar",
-        start: "2026-10-25",
-        end: "2026-11-14"
-    },
-    {
-        id: "phase_05",
-        title: "Diseño detallado",
-        start: "2026-11-15",
-        end: "2026-11-28"
-    },
-    {
-        id: "phase_06",
-        title: "BOM y preparación PDR",
-        start: "2026-11-29",
-        end: "2026-12-05"
-    },
-    {
-        id: "phase_07",
-        title: "PDR",
-        start: "2026-12-06",
-        end: "2027-01-29"
-    },
-    {
-        id: "phase_08",
-        title: "CDR",
-        start: "2027-02-01",
-        end: "2027-03-12"
-    },
-    {
-        id: "phase_09",
-        title: "Fabricación y adquisición",
-        start: "2027-03-13",
-        end: "2027-04-30"
-    },
-    {
-        id: "phase_10",
-        title: "Pruebas de subsistemas",
-        start: "2027-05-01",
-        end: "2027-05-31"
-    },
-    {
-        id: "phase_11",
-        title: "Integración del rover",
-        start: "2027-06-01",
-        end: "2027-06-15"
-    },
-    {
-        id: "phase_12",
-        title: "Pruebas y validación",
-        start: "2027-06-16",
-        end: "2027-07-31"
-    },
-    {
-        id: "phase_13",
-        title: "Inspección y preparación final",
-        start: "2027-08-01",
-        end: "2027-08-05"
-    },
-    {
-        id: "phase_14",
-        title: "CIRC 2027",
-        start: "2027-08-06",
-        end: "2027-08-13"
-    }
+
+  // =========================================================
+  // SEPTIEMBRE 2026 — INICIO Y REQUERIMIENTOS
+  // =========================================================
+
+  {
+    title: 'Inicio del proyecto - Requerimientos y análisis',
+    start: '2026-09-16',
+    end: '2026-09-21',
+    color: '#0d6efd',
+    targetId: 'arquitectura-title'
+  },
+
+  {
+    title: 'Definición de conceptos y arquitectura',
+    start: '2026-09-21',
+    end: '2026-10-10',
+    color: '#198754',
+    targetId: 'arquitectura-title'
+  },
+
+  // OCTUBRE 2026
+  {
+    title: 'Primera entrega y revisión de arquitectura',
+    start: '2026-10-10',
+    end: '2026-10-24',
+    color: '#fd7e14',
+    targetId: 'arquitectura-title'
+  },
+
+  {
+    title: 'Architecture Review & Architecture Freeze',
+    start: '2026-10-20',
+    end: '2026-10-25',
+    color: '#6f42c1',
+    targetId: 'arquitectura-title'
+  },
+
+  // NOVIEMBRE 2026
+  {
+    title: 'Desarrollo y consolidación de subsistemas',
+    start: '2026-10-25',
+    end: '2026-11-30',
+    color: '#0dcaf0',
+    targetId: 'pdb-title'
+  },
+
+  {
+    title: 'Inventario inicial de componentes',
+    start: '2026-10-31',
+    end: '2026-11-01',
+    color: '#20c997',
+    targetId: 'integracion-title'
+  },
+
+  // DICIEMBRE 2026
+  {
+    title: 'Consolidación de diseño y BOM',
+    start: '2026-12-01',
+    end: '2026-12-04',
+    color: '#ffc107',
+    targetId: 'pdb-title'
+  },
+
+  {
+    title: 'PDR 0',
+    start: '2026-12-04',
+    end: '2026-12-06',
+    color: '#dc3545',
+    targetId: 'arquitectura-title'
+  },
+
+  // ENERO 2027
+  {
+    title: 'PDR - Revisión de diseño',
+    start: '2027-01-15',
+    end: '2027-01-30',
+    color: '#6610f2',
+    targetId: 'arquitectura-title'
+  },
+
+  // FEBRERO - MARZO 2027
+  {
+    title: 'CDR - Critical Design Review',
+    start: '2027-02-05',
+    end: '2027-03-13',
+    color: '#d63384',
+    targetId: 'arquitectura-title'
+  },
+
+  {
+    title: 'Design Freeze',
+    start: '2027-03-12',
+    end: '2027-03-14',
+    color: '#dc3545',
+    targetId: 'arquitectura-title'
+  },
+
+  // MARZO - ABRIL 2027
+  {
+    title: 'Manufactura y adquisición de componentes',
+    start: '2027-03-13',
+    end: '2027-04-30',
+    color: '#0aa2c0',
+    targetId: 'integracion-title'
+  },
+
+  // MAYO 2027
+  {
+    title: 'Pruebas unitarias y de subsistemas',
+    start: '2027-05-01',
+    end: '2027-05-31',
+    color: '#198754',
+    targetId: 'integracion-title'
+  },
+
+  // JUNIO 2027
+  {
+    title: 'Integración del rover',
+    start: '2027-06-01',
+    end: '2027-06-15',
+    color: '#20c997',
+    targetId: 'integracion-title'
+  },
+
+  {
+    title: 'Rover funcional',
+    start: '2027-06-15',
+    end: '2027-06-16',
+    color: '#198754',
+    targetId: 'integracion-title'
+  },
+
+  // JULIO 2027
+  {
+    title: 'Pruebas, validación y preparación de misiones',
+    start: '2027-06-16',
+    end: '2027-07-31',
+    color: '#fd7e14',
+    targetId: 'integracion-title'
+  },
+
+  {
+    title: 'Final Freeze',
+    start: '2027-07-31',
+    end: '2027-08-01',
+    color: '#dc3545',
+    targetId: 'integracion-title'
+  },
+
+  // AGOSTO 2027
+  {
+    title: 'Inspección final',
+    start: '2027-08-01',
+    end: '2027-08-03',
+    color: '#ffc107',
+    targetId: 'safety-title'
+  },
+
+  {
+    title: 'Inventario y packing',
+    start: '2027-08-03',
+    end: '2027-08-04',
+    color: '#6c757d',
+    targetId: 'integracion-title'
+  },
+
+  {
+    title: 'Logística y viaje',
+    start: '2027-08-04',
+    end: '2027-08-06',
+    color: '#212529',
+    targetId: 'integracion-title'
+  },
+
+  {
+    title: '🏆 CIRC 2027',
+    start: '2027-08-06',
+    end: '2027-08-13',
+    color: '#b02a37',
+    targetId: 'integracion-title'
+  }
 ];
 
       var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
-        initialDate: '2026-04-23',
+        initialDate: '2026-09-16',
         locale: 'es',
         firstDay: 0,
         headerToolbar: {
@@ -662,96 +762,489 @@ const rawPhases = [
     </div>
 
 <!-- PESTAÑA DESCRIPCION DE PROYECTOS -->
+<div id="descripcion" class="tab-content">
 
-<div class="project-description">
+  <h2 class="pdb-title">
+  1. Proyecto: PDB
+  <span class="responsible-badge">
+  (Responsables: Nat, Carlos y Aquiles)
+  </span>
+  </h2>
 
-    <h2>Cronograma general CIRC 2027</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Fase / Duración</th>
+        <th>Fechas</th>
+        <th>Actividades Planificadas</th>
+        <th>Entregables</th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <p>
-        El desarrollo del proyecto se divide en diferentes etapas que abarcan
-        desde el análisis de requerimientos y estudios conceptuales hasta la
-        integración, pruebas y preparación final para la competencia.
-    </p>
+      <tr>
+        <td><strong>Arquitectura y definición</strong></td>
+        <td>16 Sep – 24 Oct 2026</td>
+        <td>
+          <ul>
+            <li>Definición de distribución de energía</li>
+            <li>Selección de protecciones y fusibles</li>
+            <li>Definición de arquitectura eléctrica</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Arquitectura eléctrica definida</li>
+            <li>Architecture Freeze</li>
+          </ul>
+        </td>
+      </tr>
 
-    <h3>Septiembre – Octubre 2026: Requerimientos y estudios conceptuales</h3>
+      <tr>
+        <td><strong>Diseño técnico</strong></td>
+        <td>25 Oct – 04 Dic 2026</td>
+        <td>
+          <ul>
+            <li>Cálculo de corrientes</li>
+            <li>Protecciones y distribución</li>
+            <li>Definición de componentes</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Diseño técnico PDB</li>
+            <li>BOM consolidada</li>
+          </ul>
+        </td>
+      </tr>
 
-    <ul>
-        <li><strong>16 de septiembre:</strong> Inicio del proyecto.</li>
-        <li><strong>18–20 de septiembre:</strong> Análisis de requerimientos y misiones.</li>
-        <li><strong>21 de septiembre:</strong> Finalización interna de los estudios conceptuales.</li>
-        <li><strong>10 de octubre:</strong> Primera entrega formal.</li>
-        <li><strong>20–24 de octubre:</strong> Revisión y congelamiento de arquitectura.</li>
-    </ul>
+      <tr>
+        <td><strong>Manufactura y validación</strong></td>
+        <td>13 Mar – 31 May 2027</td>
+        <td>
+          <ul>
+            <li>Manufactura</li>
+            <li>Ensamble</li>
+            <li>Pruebas unitarias</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>PDB fabricado</li>
+            <li>PDB validado</li>
+          </ul>
+        </td>
+      </tr>
 
-    <h3>Octubre – Diciembre 2026: Diseño preliminar y preparación del PDR</h3>
+    </tbody>
+  </table>
 
-    <ul>
-        <li><strong>31 de octubre:</strong> Inventario de electrónica.</li>
-        <li><strong>Noviembre:</strong> Desarrollo y revisión del diseño detallado.</li>
-        <li><strong>4 de diciembre:</strong> BOM final, incluyendo inventario y componentes propuestos durante los estudios conceptuales.</li>
-        <li><strong>5 de diciembre:</strong> PDR 0.</li>
-    </ul>
 
-    <h3>Enero – Marzo 2027: PDR y CDR</h3>
+  <h2 class="pcbchasis-title">
+  2. Proyecto: PCB Chasis
+  <span class="responsible-badge">
+  (Responsables: Lalo, Arturo y Nat)
+  </span>
+  </h2>
 
-    <ul>
-        <li><strong>15 de enero:</strong> PDR 1.</li>
-        <li><strong>22 de enero:</strong> PDR 2.</li>
-        <li><strong>29 de enero:</strong> PDR 3.</li>
-        <li><strong>5 de febrero:</strong> CDR 1.</li>
-        <li><strong>12 de febrero:</strong> CDR 2.</li>
-        <li><strong>26 de febrero:</strong> CDR 3.</li>
-        <li><strong>5 de marzo:</strong> CDR 4.</li>
-        <li><strong>12 de marzo:</strong> CDR 5 y cierre de la etapa de diseño.</li>
-        <li><strong>12 de marzo:</strong> Design Freeze.</li>
-    </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Fase / Duración</th>
+        <th>Fechas</th>
+        <th>Actividades Planificadas</th>
+        <th>Entregables</th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <h3>Marzo – Abril 2027: Fabricación y adquisición</h3>
+      <tr>
+        <td><strong>Arquitectura y esquemáticos</strong></td>
+        <td>25 Oct – 30 Nov 2026</td>
+        <td>
+          <ul>
+            <li>Definición de interfaces</li>
+            <li>Diseño de esquemáticos</li>
+            <li>ERC y validación</li>
+            <li>Definición de footprints</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Esquemáticos completos</li>
+            <li>Arquitectura de PCB definida</li>
+          </ul>
+        </td>
+      </tr>
 
-    <ul>
-        <li>Fabricación de PCBs y piezas.</li>
-        <li>Adquisición de componentes.</li>
-        <li>Preparación de cableado y sistemas electrónicos.</li>
-        <li>Construcción de subsistemas.</li>
-    </ul>
+      <tr>
+        <td><strong>Diseño y revisión</strong></td>
+        <td>01 Dic 2026 – 12 Mar 2027</td>
+        <td>
+          <ul>
+            <li>Placement y routing</li>
+            <li>Revisión cruzada</li>
+            <li>DRC/ERC</li>
+            <li>Validación para manufactura</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Layout finalizado</li>
+            <li>Diseño liberado</li>
+          </ul>
+        </td>
+      </tr>
 
-    <h3>Mayo 2027: Pruebas individuales</h3>
+      <tr>
+        <td><strong>Manufactura y validación</strong></td>
+        <td>13 Mar – 31 May 2027</td>
+        <td>
+          <ul>
+            <li>Generación de Gerbers</li>
+            <li>Manufactura</li>
+            <li>Ensamble</li>
+            <li>Bring-up y pruebas</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>PCB fabricada</li>
+            <li>PCB validada</li>
+          </ul>
+        </td>
+      </tr>
 
-    <ul>
-        <li>Pruebas de cada subsistema.</li>
-        <li>Validación de electrónica.</li>
-        <li>Validación de actuadores y sensores.</li>
-        <li>Pruebas de software.</li>
-    </ul>
+    </tbody>
+  </table>
 
-    <h3>Junio 2027: Integración</h3>
 
-    <ul>
-        <li>Integración de los diferentes subsistemas.</li>
-        <li>Pruebas de comunicación.</li>
-        <li>Pruebas de operación conjunta.</li>
-        <li><strong>15 de junio:</strong> Rover funcional.</li>
-    </ul>
+  <h2 class="pcbbrazo-title">
+  3. Proyecto: PCB Brazo
+  <span class="responsible-badge">
+  (Responsables: Arturo, Lalo y Carlos)
+  </span>
+  </h2>
 
-    <h3>Julio 2027: Pruebas y validación final</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Fase / Duración</th>
+        <th>Fechas</th>
+        <th>Actividades Planificadas</th>
+        <th>Entregables</th>
+      </tr>
+    </thead>
 
-    <ul>
-        <li>Pruebas de las misiones.</li>
-        <li>Pruebas de seguridad.</li>
-        <li>Validación de procedimientos.</li>
-        <li>Pruebas de operación completa.</li>
-        <li>Corrección de fallas encontradas durante las pruebas.</li>
-        <li><strong>31 de julio:</strong> Freeze final del rover.</li>
-    </ul>
+    <tbody>
 
-    <h3>Agosto 2027: Preparación y competencia</h3>
+      <tr>
+        <td><strong>Arquitectura y esquemáticos</strong></td>
+        <td>25 Oct – 30 Nov 2026</td>
+        <td>
+          <ul>
+            <li>Diseño eléctrico del brazo</li>
+            <li>Integración de sensores y drivers</li>
+            <li>Definición de interfaces</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Esquemáticos completos</li>
+            <li>Arquitectura definida</li>
+          </ul>
+        </td>
+      </tr>
 
-    <ul>
-        <li><strong>1–2 de agosto:</strong> Inspección y revisión final.</li>
-        <li><strong>3 de agosto:</strong> Inventario y empaquetado.</li>
-        <li><strong>4–5 de agosto:</strong> Logística y viaje.</li>
-        <li><strong>6 de agosto:</strong> Canadian International Rover Challenge 2027.</li>
-    </ul>
+      <tr>
+        <td><strong>Layout y Routing</strong></td>
+        <td>01 Dic 2026 – 12 Mar 2027</td>
+        <td>
+          <ul>
+            <li>Placement y routing</li>
+            <li>Revisión cruzada</li>
+            <li>DRC/ERC final</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Layout finalizado</li>
+            <li>PCB liberada para manufactura</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Manufactura y validación</strong></td>
+        <td>13 Mar – 31 May 2027</td>
+        <td>
+          <ul>
+            <li>Manufactura</li>
+            <li>Ensamble</li>
+            <li>Bring-up funcional</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>PCB brazo fabricada</li>
+            <li>PCB validada</li>
+          </ul>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+  <h2 class="can-title">
+  4. Proyecto: Telecomms / CAN
+  <span class="responsible-badge">
+  (Responsables: Aquiles, Carlos y Nat)
+  </span>
+  </h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fase / Duración</th>
+        <th>Fechas</th>
+        <th>Actividades Planificadas</th>
+        <th>Entregables</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td><strong>Arquitectura CAN</strong></td>
+        <td>16 Sep – 24 Oct 2026</td>
+        <td>
+          <ul>
+            <li>Definición de buses</li>
+            <li>Topología de red</li>
+            <li>Definición de nodos STM32</li>
+            <li>Interfaces Jetson-STM32</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Arquitectura CAN definida</li>
+            <li>Interfaces documentadas</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Desarrollo y validación</strong></td>
+        <td>25 Oct 2026 – 31 May 2027</td>
+        <td>
+          <ul>
+            <li>Implementación de comunicación CAN</li>
+            <li>Pruebas de nodos</li>
+            <li>Comunicación Jetson-STM32</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Comunicación estable</li>
+            <li>Protocolo validado</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Integración</strong></td>
+        <td>01 Jun – 15 Jun 2027</td>
+        <td>
+          <ul>
+            <li>Integración con el rover</li>
+            <li>Pruebas bajo carga</li>
+            <li>Validación de comunicación</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Comunicación integrada al rover</li>
+          </ul>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+  <h2 class="safety-title">
+  5. Proyecto: Safety Report
+  <span class="responsible-badge">
+  (Responsables: Carlos y todo el equipo)
+  </span>
+  </h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fase / Duración</th>
+        <th>Fechas</th>
+        <th>Actividades Planificadas</th>
+        <th>Entregables</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td><strong>Desarrollo inicial</strong></td>
+        <td>16 Sep – 31 Dic 2026</td>
+        <td>
+          <ul>
+            <li>Definición de estructura</li>
+            <li>Identificación de riesgos</li>
+            <li>Documentación de arquitectura</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Safety preliminar</li>
+            <li>Base documental definida</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Actualización y validación</strong></td>
+        <td>01 Ene – 31 Jul 2027</td>
+        <td>
+          <ul>
+            <li>Actualización conforme al diseño final</li>
+            <li>Integración electrónica</li>
+            <li>Diagramas y documentación</li>
+            <li>Validación de procedimientos</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Safety Report actualizado</li>
+            <li>Documentación final</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Inspección final</strong></td>
+        <td>01 Ago – 02 Ago 2027</td>
+        <td>
+          <ul>
+            <li>Revisión de seguridad</li>
+            <li>Checklist CIRC</li>
+            <li>Inspección final del rover</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Equipo listo para inspección</li>
+          </ul>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+
+  <h2 class="integration-title">
+  6. Proyecto: Integración y Pruebas
+  <span class="responsible-badge">
+  (Todo el equipo)
+  </span>
+  </h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Fase / Duración</th>
+        <th>Fechas</th>
+        <th>Actividades Planificadas</th>
+        <th>Entregables</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td><strong>Pruebas unitarias</strong></td>
+        <td>01 May – 31 May 2027</td>
+        <td>
+          <ul>
+            <li>Pruebas funcionales de subsistemas</li>
+            <li>Validación de electrónica</li>
+            <li>Corrección de fallas</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Subsistemas validados</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Integración del rover</strong></td>
+        <td>01 Jun – 15 Jun 2027</td>
+        <td>
+          <ul>
+            <li>Integración de subsistemas</li>
+            <li>Integración Jetson + STM32</li>
+            <li>Integración mecánica y electrónica</li>
+            <li>Corrección de bugs</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Sistema funcional</li>
+            <li>Rover funcional al 15 de junio</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Pruebas y validación</strong></td>
+        <td>16 Jun – 31 Jul 2027</td>
+        <td>
+          <ul>
+            <li>Pruebas de estrés</li>
+            <li>Validación de misiones</li>
+            <li>Pruebas de seguridad</li>
+            <li>Corrección de bugs críticos</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Sistema validado</li>
+            <li>Documentación final</li>
+            <li>Final Freeze</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>Preparación para competencia</strong></td>
+        <td>01 Ago – 05 Ago 2027</td>
+        <td>
+          <ul>
+            <li>Inspección final</li>
+            <li>Inventario y repuestos</li>
+            <li>Packing</li>
+            <li>Logística y preparación de viaje</li>
+          </ul>
+        </td>
+        <td>
+          <ul>
+            <li>Equipo listo para competencia</li>
+          </ul>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
 
 </div>
 
@@ -772,311 +1265,470 @@ const rawPhases = [
 
   <script>
     // ESTADO INICIAL
+// ESTADO INICIAL
 const initialDeliverables = [
-    // =========================
-    // SEPTIEMBRE 2026
-    // =========================
-    {
-        id: "w1_arch_1",
-        title: "Análisis de requerimientos",
-        date: "2026-09-18",
-        area: "General",
-        description: "Identificación y análisis de los requerimientos de la competencia y del rover."
-    },
-    {
-        id: "w1_arch_2",
-        title: "Análisis de misiones",
-        date: "2026-09-19",
-        area: "General",
-        description: "Análisis de las misiones y necesidades técnicas asociadas."
-    },
-    {
-        id: "w1_arch_3",
-        title: "Requerimientos del sistema",
-        date: "2026-09-20",
-        area: "General",
-        description: "Definición de requerimientos funcionales y técnicos del rover."
-    },
 
-    // =========================
-    // OCTUBRE 2026
-    // =========================
-    {
-        id: "w2_1",
-        title: "Estudios conceptuales",
-        date: "2026-09-23",
-        area: "General",
-        description: "Desarrollo y comparación de conceptos para los diferentes subsistemas."
-    },
-    {
-        id: "w2_2",
-        title: "Conceptos preliminares",
-        date: "2026-09-23",
-        area: "General",
-        description: "Definición de propuestas preliminares de solución."
-    },
-    {
-        id: "w2_3",
-        title: "Selección de conceptos",
-        date: "2026-09-25",
-        area: "General",
-        description: "Evaluación y selección de los conceptos a desarrollar."
-    },
-    {
-        id: "w2_4",
-        title: "Cierre de estudios conceptuales",
-        date: "2026-09-27",
-        area: "General",
-        description: "Finalización interna de los estudios conceptuales."
-    },
+  // =========================================================
+  // SEPTIEMBRE 2026 — REQUERIMIENTOS Y ARQUITECTURA
+  // =========================================================
 
-    {
-        id: "w3_1",
-        title: "Desarrollo de arquitectura",
-        date: "2026-09-30",
-        area: "General",
-        description: "Desarrollo de la arquitectura general del rover."
-    },
-    {
-        id: "w3_2",
-        title: "Arquitectura de subsistemas",
-        date: "2026-10-02",
-        area: "General",
-        description: "Definición de la arquitectura de los diferentes subsistemas."
-    },
-    {
-        id: "w3_3",
-        title: "Integración de arquitectura",
-        date: "2026-10-02",
-        area: "General",
-        description: "Integración de las arquitecturas de los diferentes subsistemas."
-    },
-    {
-        id: "w3_4",
-        title: "Revisión de arquitectura",
-        date: "2026-10-04",
-        area: "General",
-        description: "Revisión de la arquitectura propuesta."
-    },
+  {
+    id: "w1_arch_1",
+    name: "[General] Inicio del proyecto CIRC 2027",
+    responsible: "Todo el equipo",
+    date: "2026-09-16",
+    status: "en-proceso",
+    important: true
+  },
 
-    {
-        id: "w4_1",
-        title: "Primer avance formal",
-        date: "2026-10-08",
-        area: "General",
-        description: "Preparación del primer avance formal del proyecto."
-    },
-    {
-        id: "w4_2",
-        title: "Documentación de conceptos",
-        date: "2026-10-08",
-        area: "General",
-        description: "Documentación de los conceptos y decisiones iniciales."
-    },
-    {
-        id: "w4_3",
-        title: "Primera entrega",
-        date: "2026-10-10",
-        area: "General",
-        description: "Primera entrega formal del proyecto."
-    },
+  {
+    id: "w1_arch_2",
+    name: "[General] Requerimientos y análisis de misiones",
+    responsible: "Todo el equipo",
+    date: "2026-09-18",
+    status: "en-proceso",
+    important: true
+  },
 
-    // =========================
-    // OCTUBRE - NOVIEMBRE 2026
-    // =========================
-    {
-        id: "w5_1",
-        title: "Definición de arquitectura",
-        date: "2026-10-14",
-        area: "General",
-        description: "Consolidación de la arquitectura seleccionada."
-    },
-    {
-        id: "w5_2",
-        title: "Revisión de interfaces",
-        date: "2026-10-15",
-        area: "General",
-        description: "Definición y revisión de interfaces entre subsistemas."
-    },
-    {
-        id: "w5_3",
-        title: "Architecture Freeze",
-        date: "2026-10-17",
-        area: "General",
-        description: "Congelamiento de la arquitectura del sistema."
-    },
+  {
+    id: "w1_arch_3",
+    name: "[General] Análisis de conceptos completado",
+    responsible: "Todo el equipo",
+    date: "2026-09-21",
+    status: "en-proceso",
+    important: true
+  },
 
-    {
-        id: "w6_1",
-        title: "Diseño preliminar",
-        date: "2026-10-21",
-        area: "General",
-        description: "Inicio del desarrollo de los diseños preliminares."
-    },
-    {
-        id: "w6_2",
-        title: "Revisión de diseño preliminar",
-        date: "2026-10-22",
-        area: "General",
-        description: "Revisión de los diseños preliminares de los subsistemas."
-    },
-    {
-        id: "w6_3",
-        title: "Cierre de diseño preliminar",
-        date: "2026-10-24",
-        area: "General",
-        description: "Cierre de la etapa de diseño preliminar."
-    },
+  // =========================================================
+  // SEPTIEMBRE - OCTUBRE 2026 — ARQUITECTURA
+  // =========================================================
 
-    {
-        id: "w7_1",
-        title: "Inventario de electrónica",
-        date: "2026-10-28",
-        area: "Electrónica",
-        description: "Preparación y revisión del inventario de componentes electrónicos."
-    },
-    {
-        id: "w7_2",
-        title: "Validación de inventario",
-        date: "2026-10-29",
-        area: "Electrónica",
-        description: "Validación de componentes disponibles y faltantes."
-    },
-    {
-        id: "w7_3",
-        title: "Inventario de electrónica final",
-        date: "2026-10-31",
-        area: "Electrónica",
-        description: "Cierre del inventario de electrónica."
-    },
+  {
+    id: "w2_1",
+    name: "[General] Arquitectura preliminar del rover",
+    responsible: "Todo el equipo",
+    date: "2026-09-30",
+    status: "en-proceso",
+    important: true
+  },
 
-    // =========================
-    // NOVIEMBRE 2026
-    // =========================
-    {
-        id: "w8_1",
-        title: "Desarrollo de diseño detallado",
-        date: "2026-11-05",
-        area: "General",
-        description: "Desarrollo del diseño detallado de los subsistemas."
-    },
-    {
-        id: "w8_2",
-        title: "Revisión de diseño detallado",
-        date: "2026-11-07",
-        area: "General",
-        description: "Revisión de avances del diseño detallado."
-    },
+  {
+    id: "w2_2",
+    name: "[Telecomms/CAN] Arquitectura de comunicaciones definida",
+    responsible: "Aquiles, Carlos, Nat",
+    date: "2026-10-03",
+    status: "en-proceso",
+    important: true
+  },
 
-    {
-        id: "w9_1",
-        title: "Integración de diseños",
-        date: "2026-11-12",
-        area: "General",
-        description: "Integración de los diseños de los diferentes subsistemas."
-    },
-    {
-        id: "w9_2",
-        title: "Revisión de interfaces",
-        date: "2026-11-14",
-        area: "General",
-        description: "Validación de interfaces entre subsistemas."
-    },
-    {
-        id: "w9_3",
-        title: "Validación de diseño",
-        date: "2026-11-14",
-        area: "General",
-        description: "Validación del diseño previo a la documentación final."
-    },
+  {
+    id: "w2_3",
+    name: "[PDB] Arquitectura preliminar de potencia",
+    responsible: "Nat, Carlos, Aquiles",
+    date: "2026-10-05",
+    status: "en-proceso",
+    important: true
+  },
 
-    {
-        id: "w10_1",
-        title: "Documentación técnica",
-        date: "2026-11-18",
-        area: "General",
-        description: "Desarrollo de la documentación técnica del diseño."
-    },
-    {
-        id: "w10_2",
-        title: "Revisión de documentación",
-        date: "2026-11-21",
-        area: "General",
-        description: "Revisión de la documentación técnica."
-    },
+  {
+    id: "w2_4",
+    name: "[General] Primera entrega formal",
+    responsible: "Todo el equipo",
+    date: "2026-10-10",
+    status: "en-proceso",
+    important: true
+  },
 
-    {
-        id: "w11_1",
-        title: "Preparación de BOM",
-        date: "2026-11-25",
-        area: "Electrónica",
-        description: "Preparación de la lista de materiales a partir del inventario y los diseños."
-    },
-    {
-        id: "w11_2",
-        title: "Consolidación de BOM",
-        date: "2026-11-28",
-        area: "Electrónica",
-        description: "Consolidación de componentes existentes y componentes requeridos."
-    },
+  // =========================================================
+  // OCTUBRE 2026 — ARCHITECTURE REVIEW
+  // =========================================================
 
-    // =========================
-    // DICIEMBRE 2026
-    // =========================
-    {
-        id: "w12_1",
-        title: "BOM final",
-        date: "2026-12-02",
-        area: "Electrónica",
-        description: "Revisión final de la lista de materiales."
-    },
-    {
-        id: "w12_2",
-        title: "BOM + propuestas conceptuales",
-        date: "2026-12-04",
-        area: "General",
-        description: "Entrega de BOM consolidada y propuestas derivadas de los estudios conceptuales."
-    },
+  {
+    id: "w3_1",
+    name: "[General] Architecture Review",
+    responsible: "Todo el equipo",
+    date: "2026-10-20",
+    status: "en-proceso",
+    important: true
+  },
 
-    {
-        id: "w13_1",
-        title: "Preparación PDR",
-        date: "2026-12-11",
-        area: "General",
-        description: "Preparación de la documentación para la revisión preliminar de diseño."
-    },
-    {
-        id: "w13_2",
-        title: "PDR 0",
-        date: "2026-12-12",
-        area: "General",
-        description: "Primera revisión preliminar de diseño."
-    },
+  {
+    id: "w3_2",
+    name: "[General] Architecture Freeze",
+    responsible: "Todo el equipo",
+    date: "2026-10-24",
+    status: "en-proceso",
+    important: true
+  },
 
-    // =========================
-    // ENERO 2027
-    // =========================
-    {
-        id: "w14_1",
-        title: "PDR 1",
-        date: "2027-01-15",
-        area: "General",
-        description: "Primera revisión preliminar de diseño del periodo."
-    },
-    {
-        id: "w14_2",
-        title: "PDR 2",
-        date: "2027-01-22",
-        area: "General",
-        description: "Segunda revisión preliminar de diseño."
-    },
-    {
-        id: "w14_3",
-        title: "PDR 3",
-        date: "2027-01-29",
-        area: "General",
-        description: "Tercera revisión preliminar de diseño."
-    }
+  // =========================================================
+  // OCTUBRE - NOVIEMBRE 2026 — DESARROLLO
+  // =========================================================
+
+  {
+    id: "w4_1",
+    name: "[PDB] Diseño técnico de distribución y protecciones",
+    responsible: "Nat, Carlos, Aquiles",
+    date: "2026-10-31",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w4_2",
+    name: "[PCB Chasis] Esquemáticos y arquitectura definidos",
+    responsible: "Lalo, Arturo, Nat",
+    date: "2026-11-07",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w4_3",
+    name: "[PCB Brazo] Esquemáticos y arquitectura definidos",
+    responsible: "Arturo, Lalo, Carlos",
+    date: "2026-11-14",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w4_4",
+    name: "[Safety Report] Estructura y requisitos definidos",
+    responsible: "Carlos, Todos",
+    date: "2026-11-21",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w4_5",
+    name: "[General] Inventario de componentes",
+    responsible: "Todo el equipo",
+    date: "2026-10-31",
+    status: "en-proceso",
+    important: false
+  },
+
+  // =========================================================
+  // DICIEMBRE 2026 — BOM Y PDR 0
+  // =========================================================
+
+  {
+    id: "w5_1",
+    name: "[General] BOM consolidada",
+    responsible: "Todo el equipo",
+    date: "2026-12-04",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w5_2",
+    name: "[General] PDR 0",
+    responsible: "Todo el equipo",
+    date: "2026-12-05",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // ENERO 2027 — PDR
+  // =========================================================
+
+  {
+    id: "w6_1",
+    name: "[General] PDR - Revisión 1",
+    responsible: "Todo el equipo",
+    date: "2027-01-15",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w6_2",
+    name: "[General] PDR - Revisión 2",
+    responsible: "Todo el equipo",
+    date: "2027-01-22",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w6_3",
+    name: "[General] PDR - Revisión 3",
+    responsible: "Todo el equipo",
+    date: "2027-01-29",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // FEBRERO 2027 — CDR
+  // =========================================================
+
+  {
+    id: "w7_1",
+    name: "[General] CDR - Revisión 1",
+    responsible: "Todo el equipo",
+    date: "2027-02-05",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w7_2",
+    name: "[General] CDR - Revisión 2",
+    responsible: "Todo el equipo",
+    date: "2027-02-12",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w7_3",
+    name: "[General] CDR - Revisión 3",
+    responsible: "Todo el equipo",
+    date: "2027-02-26",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // MARZO 2027 — CDR Y DESIGN FREEZE
+  // =========================================================
+
+  {
+    id: "w8_1",
+    name: "[General] CDR - Revisión 4",
+    responsible: "Todo el equipo",
+    date: "2027-03-05",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w8_2",
+    name: "[General] CDR - Revisión 5",
+    responsible: "Todo el equipo",
+    date: "2027-03-12",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w8_3",
+    name: "[General] Design Freeze",
+    responsible: "Todo el equipo",
+    date: "2027-03-12",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // MARZO - ABRIL 2027 — MANUFACTURA
+  // =========================================================
+
+  {
+    id: "w9_1",
+    name: "[PCB Chasis] Archivos finales para manufactura",
+    responsible: "Lalo, Arturo, Nat",
+    date: "2027-03-19",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w9_2",
+    name: "[PCB Brazo] Archivos finales para manufactura",
+    responsible: "Arturo, Lalo, Carlos",
+    date: "2027-03-26",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w9_3",
+    name: "[General] Adquisición de componentes completada",
+    responsible: "Todo el equipo",
+    date: "2027-04-16",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w9_4",
+    name: "[General] Manufactura y procurement completados",
+    responsible: "Todo el equipo",
+    date: "2027-04-30",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // MAYO 2027 — PRUEBAS UNITARIAS
+  // =========================================================
+
+  {
+    id: "w10_1",
+    name: "[PCB Chasis] PCB ensamblada y validada",
+    responsible: "Lalo, Arturo, Nat",
+    date: "2027-05-14",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w10_2",
+    name: "[PCB Brazo] PCB ensamblada y validada",
+    responsible: "Arturo, Lalo, Carlos",
+    date: "2027-05-21",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w10_3",
+    name: "[Telecomms/CAN] Pruebas unitarias de comunicación",
+    responsible: "Aquiles, Carlos, Nat",
+    date: "2027-05-28",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // JUNIO 2027 — INTEGRACIÓN
+  // =========================================================
+
+  {
+    id: "w11_1",
+    name: "[Integración] Inicio de integración del rover",
+    responsible: "Todo el equipo",
+    date: "2027-06-01",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w11_2",
+    name: "[Integración] Integración de subsistemas completada",
+    responsible: "Todo el equipo",
+    date: "2027-06-12",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w11_3",
+    name: "[Integración] Rover completamente funcional",
+    responsible: "Todo el equipo",
+    date: "2027-06-15",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // JUNIO - JULIO 2027 — VALIDACIÓN
+  // =========================================================
+
+  {
+    id: "w12_1",
+    name: "[Integración] Pruebas funcionales completas",
+    responsible: "Todo el equipo",
+    date: "2027-06-30",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w12_2",
+    name: "[Safety Report] Safety Report actualizado",
+    responsible: "Carlos, Todos",
+    date: "2027-07-10",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w12_3",
+    name: "[Integración] Validación de misiones",
+    responsible: "Todo el equipo",
+    date: "2027-07-17",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w12_4",
+    name: "[Integración] Pruebas finales de estrés",
+    responsible: "Todo el equipo",
+    date: "2027-07-24",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // JULIO 2027 — FINAL FREEZE
+  // =========================================================
+
+  {
+    id: "w13_1",
+    name: "[General] Documentación final completada",
+    responsible: "Todo el equipo",
+    date: "2027-07-30",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w13_2",
+    name: "[General] Final Freeze",
+    responsible: "Todo el equipo",
+    date: "2027-07-31",
+    status: "en-proceso",
+    important: true
+  },
+
+  // =========================================================
+  // AGOSTO 2027 — PREPARACIÓN Y COMPETENCIA
+  // =========================================================
+
+  {
+    id: "w14_1",
+    name: "[Safety Report] Inspección final",
+    responsible: "Carlos, Todos",
+    date: "2027-08-02",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w14_2",
+    name: "[General] Inventario y packing completos",
+    responsible: "Todo el equipo",
+    date: "2027-08-03",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "w14_3",
+    name: "[General] Equipo listo para viaje",
+    responsible: "Todo el equipo",
+    date: "2027-08-05",
+    status: "en-proceso",
+    important: true
+  },
+
+  {
+    id: "circ2027",
+    name: "[General] 🏆 CIRC 2027",
+    responsible: "Todo el equipo",
+    date: "2027-08-06",
+    status: "en-proceso",
+    important: true
+  }
+
 ];
 
     let deliverables = JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
