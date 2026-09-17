@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cronograma de Desarrollo - CIRC 2027</title>
+<title>Cronograma de Desarrollo - CIRC 2026</title>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
 <style>
   :root {
@@ -347,9 +347,9 @@
 <body>
 
 <div class="container">
-  <h1>Cronograma de Desarrollo Electrónico - CIRC 2027</h1>
+  <h1>Cronograma de Desarrollo Electrónico - CIRC 2026</h1>
   <div class="header-info">
-    <strong>Inicio del proyecto:</strong> <span id="today-date">—</span> <br>
+    <strong>Fecha de Partida:</strong> <span id="today-date">—</span> <br>
     <strong>Competencia:</strong> <span id="competition-date">—</span> <br>
     <strong>Días restantes para la competencia:</strong> <span id="days-remaining">—</span>
   </div>
@@ -381,7 +381,7 @@ const currentMidnight = new Date(
 );
 
 // Fecha de inicio del proyecto (FIJA)
-const projectStartDate = new Date(2026, 8, 16);
+const projectStartDate = new Date(2026, 4, 3);
 
 // Fecha competencia
 const competitionDate = new Date(2026, 7, 7);
@@ -423,87 +423,660 @@ const competitionMidnight = new Date(
       
       var calendarEl = document.getElementById('calendar');
       
-      const rawPhases = [
-  {
-    id: "requirements",
-    title: "Requisitos y Análisis de Misión",
-    start: "2026-09-16",
-    end: "2026-09-20",
-    color: "#2563eb",
-    targetId: "requirements-title"
-  },
-  {
-    id: "conceptos",
-    title: "Estudios Conceptuales",
-    start: "2026-09-16",
-    end: "2026-10-10",
-    color: "#7c3aed",
-    targetId: "conceptos-title"
-  },
-  {
-    id: "arquitectura",
-    title: "Arquitectura e Interfaces",
-    start: "2026-10-11",
-    end: "2026-11-30",
-    color: "#0891b2",
-    targetId: "arquitectura-title"
-  },
-  {
-    id: "pdr",
-    title: "PDR y Refinamiento de Diseño",
-    start: "2026-12-01",
-    end: "2027-01-31",
-    color: "#d97706",
-    targetId: "pdr-title"
-  },
-  {
-    id: "cdr",
-    title: "CDR y Diseño Detallado",
-    start: "2027-02-01",
-    end: "2027-03-12",
-    color: "#dc2626",
-    targetId: "cdr-title"
-  },
-  {
-    id: "implementacion",
-    title: "Fabricación, Compras e Implementación",
-    start: "2027-03-13",
-    end: "2027-04-30",
-    color: "#059669",
-    targetId: "implementacion-title"
-  },
-  {
-    id: "pruebas_subsistemas",
-    title: "Pruebas de Subsistemas",
-    start: "2027-05-01",
-    end: "2027-05-31",
-    color: "#65a30d",
-    targetId: "pruebas-title"
-  },
-  {
-    id: "integracion",
-    title: "Integración y Rover Functional",
-    start: "2027-06-01",
-    end: "2027-06-15",
-    color: "#0f766e",
-    targetId: "integracion-title"
-  },
-  {
-    id: "validacion",
-    title: "Pruebas de Sistema y Validación",
-    start: "2027-06-16",
-    end: "2027-07-31",
-    color: "#be123c",
-    targetId: "validacion-title"
-  },
-  {
-    id: "competencia",
-    title: "Preparación Final y CIRC 2027",
-    start: "2027-08-01",
-    end: "2027-08-06",
-    color: "#4f46e5",
-    targetId: "competencia-title"
-  }
+const rawPhases = [
+    {
+        id: "phase_01",
+        title: "Requerimientos y análisis",
+        start: "2026-09-16",
+        end: "2026-09-20"
+    },
+    {
+        id: "phase_02",
+        title: "Estudios conceptuales",
+        start: "2026-09-21",
+        end: "2026-10-10"
+    },
+    {
+        id: "phase_03",
+        title: "Arquitectura del sistema",
+        start: "2026-10-11",
+        end: "2026-10-24"
+    },
+    {
+        id: "phase_04",
+        title: "Diseño preliminar",
+        start: "2026-10-25",
+        end: "2026-11-14"
+    },
+    {
+        id: "phase_05",
+        title: "Diseño detallado",
+        start: "2026-11-15",
+        end: "2026-11-28"
+    },
+    {
+        id: "phase_06",
+        title: "BOM y preparación PDR",
+        start: "2026-11-29",
+        end: "2026-12-05"
+    },
+    {
+        id: "phase_07",
+        title: "PDR",
+        start: "2026-12-06",
+        end: "2027-01-29"
+    },
+    {
+        id: "phase_08",
+        title: "CDR",
+        start: "2027-02-01",
+        end: "2027-03-12"
+    },
+    {
+        id: "phase_09",
+        title: "Fabricación y adquisición",
+        start: "2027-03-13",
+        end: "2027-04-30"
+    },
+    {
+        id: "phase_10",
+        title: "Pruebas de subsistemas",
+        start: "2027-05-01",
+        end: "2027-05-31"
+    },
+    {
+        id: "phase_11",
+        title: "Integración del rover",
+        start: "2027-06-01",
+        end: "2027-06-15"
+    },
+    {
+        id: "phase_12",
+        title: "Pruebas y validación",
+        start: "2027-06-16",
+        end: "2027-07-31"
+    },
+    {
+        id: "phase_13",
+        title: "Inspección y preparación final",
+        start: "2027-08-01",
+        end: "2027-08-05"
+    },
+    {
+        id: "phase_14",
+        title: "CIRC 2027",
+        start: "2027-08-06",
+        end: "2027-08-13"
+    }
+];
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        initialDate: '2026-04-23',
+        locale: 'es',
+        firstDay: 0,
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,multiMonthYear'
+        },
+        buttonText: { today: 'Hoy', month: 'Mensual', year: 'Anual' },
+        
+        // Custom Render for Phases and Deliverables
+        eventContent: function(arg) {
+           const props = arg.event.extendedProps;
+           // UI for Deliverables (dot + truncated short text)
+           if (props.type === 'deliverable') {
+              return { html: `<div class="fc-event-deliv" title="Ver entregable: ${arg.event.extendedProps.rawName}"><div class="fc-deliv-dot" style="background:${arg.event.backgroundColor}"></div>${arg.event.title}</div>` };
+           }
+        },
+        
+        // CLICK ON DAY CELLS
+        dateClick: function(info) {
+           const clickedDateStr = info.dateStr;
+           const clickedTimestamp = new Date(clickedDateStr + 'T00:00:00').getTime();
+           let htmlContent = '';
+           
+           // 1. Encontrar Fases activas en esta fecha
+           let activePhases = rawPhases.filter(p => {
+              const s = new Date(p.start + 'T00:00:00').getTime();
+              const e = new Date(p.end + 'T00:00:00').getTime();
+              // La fase incluye un rango (excluimos el fin exacto o no, tradicionalmente el end en FC es exclusivo)
+              return clickedTimestamp >= s && clickedTimestamp < e;
+           });
+           
+           if(activePhases.length > 0) {
+              htmlContent += '<h4 style="margin-top:0; font-size:15px; color:#495057; border-bottom: 2px solid #e9ecef; padding-bottom:5px;">Fases en Curso</h4>';
+              activePhases.forEach(p => {
+                 htmlContent += `<div onclick="closeDayModal(); goToPhase('${p.targetId}')" style="background: ${p.color}; color: white; padding: 6px 12px; margin-bottom: 6px; border-radius: 6px; font-weight: 600; font-size: 14px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" title="Ir a la descripción de esta fase">${p.title}</div>`;
+              });
+           }
+           
+           // 2. Encontrar Entregables en esta fecha
+           const currentDeliverables = JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
+           let activeDelivs = currentDeliverables.filter(d => d.date === clickedDateStr);
+           
+           if(activeDelivs.length > 0) {
+              htmlContent += '<h4 style="margin-top:15px; font-size:15px; color:#495057; border-bottom: 2px solid #e9ecef; padding-bottom:5px;">Entregables Pendientes / Vencidos</h4>';
+              activeDelivs.forEach(d => {
+                 let badgeClr = d.status === 'en-proceso' ? '#ffc107' : (d.status === 'finalizado' ? '#198754' : '#dc3545');
+                 htmlContent += `
+                   <div style="border: 1px solid #dee2e6; padding: 10px; border-radius: 8px; margin-bottom: 8px; cursor: pointer; transition: background 0.2s;" 
+                        onmouseover="this.style.backgroundColor='#f8f9fa'" 
+                        onmouseout="this.style.backgroundColor='white'"
+                        onclick="closeDayModal(); openModal('Detalles del Entregable', '', '${d.name.replace(/'/g, "\'")}', '${d.responsible}', '${d.status}');" >
+                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: ${badgeClr};"></div>
+                        <strong style="color: #212529;">${d.name}</strong>
+                     </div>
+                     <div style="font-size: 13px; color: #6c757d; margin-left: 20px;">Responsable: ${d.responsible}</div>
+                   </div>
+                 `;
+              });
+           }
+           
+           openDayModal(clickedDateStr, htmlContent);
+        },
+
+        // EVENT CLICK ROUTING
+        eventClick: function(info) {
+           const props = info.event.extendedProps;
+           // If user clicks a Deliverable event in the calendar directly
+           if (props.type === 'deliverable') {
+              openModal(
+                 "Detalles del Entregable", 
+                 props.project, 
+                 props.rawName, 
+                 props.responsible, 
+                 props.status
+              );
+           }
+        },
+
+        events: function(info, successCallback, failureCallback) {
+          let allEvents = [];
+          
+          // INYECTAR SOLO ENTREGABLES (PUNTOS)
+          const currentDeliverables = JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
+          currentDeliverables.forEach(d => {
+             // Colored dot indicator
+             let clr = '#ffc107'; // en-proceso
+             if(d.status === 'finalizado') clr = '#198754';
+             if(d.status === 'no-finalizado') clr = '#dc3545';
+             
+             let projectName = "Hito General";
+             let rawName = d.name;
+             
+             // Extract bracket tags
+             const match = d.name.match(/^\[(.*?)\]\s*(.*)$/);
+             if (match) {
+                 projectName = match[1];
+                 rawName = match[2];
+             } else if (d.name.includes("Chasis")) projectName = "Chasis";
+             else if (d.name.includes("Brazo")) projectName = "Brazo Robótico";
+             else if (d.name.includes("Telecomms") || d.name.includes("PCB") || d.name.includes("telecomms")) projectName = "Integración Múltiple";
+
+             // Very short title for clean view
+             let shortTitle = rawName.length > 25 ? rawName.substring(0, 22) + '...' : rawName;
+             
+             allEvents.push({
+                title: shortTitle,
+                start: d.date,
+                allDay: true,
+                backgroundColor: clr,
+                extendedProps: {
+                    type: 'deliverable',
+                    project: projectName,
+                    rawName: rawName,
+                    responsible: d.responsible,
+                    status: d.status
+                }
+             });
+          });
+
+          successCallback(allEvents);
+        }
+      });
+      calendar.render();
+      window.circCalendar = calendar;
+
+
+
+    });
+
+    function updateCalendarEvents() {
+        if(window.circCalendar) {
+            window.circCalendar.refetchEvents();
+        }
+    }
+  </script>
+
+  </script>
+  
+      <!-- Fix para el renderizado del calendario al cambiar de pestaña -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
+        });
+      </script>
+    </div>
+
+<!-- PESTAÑA DESCRIPCION DE PROYECTOS -->
+
+<div class="project-description">
+
+    <h2>Cronograma general CIRC 2027</h2>
+
+    <p>
+        El desarrollo del proyecto se divide en diferentes etapas que abarcan
+        desde el análisis de requerimientos y estudios conceptuales hasta la
+        integración, pruebas y preparación final para la competencia.
+    </p>
+
+    <h3>Septiembre – Octubre 2026: Requerimientos y estudios conceptuales</h3>
+
+    <ul>
+        <li><strong>16 de septiembre:</strong> Inicio del proyecto.</li>
+        <li><strong>18–20 de septiembre:</strong> Análisis de requerimientos y misiones.</li>
+        <li><strong>21 de septiembre:</strong> Finalización interna de los estudios conceptuales.</li>
+        <li><strong>10 de octubre:</strong> Primera entrega formal.</li>
+        <li><strong>20–24 de octubre:</strong> Revisión y congelamiento de arquitectura.</li>
+    </ul>
+
+    <h3>Octubre – Diciembre 2026: Diseño preliminar y preparación del PDR</h3>
+
+    <ul>
+        <li><strong>31 de octubre:</strong> Inventario de electrónica.</li>
+        <li><strong>Noviembre:</strong> Desarrollo y revisión del diseño detallado.</li>
+        <li><strong>4 de diciembre:</strong> BOM final, incluyendo inventario y componentes propuestos durante los estudios conceptuales.</li>
+        <li><strong>5 de diciembre:</strong> PDR 0.</li>
+    </ul>
+
+    <h3>Enero – Marzo 2027: PDR y CDR</h3>
+
+    <ul>
+        <li><strong>15 de enero:</strong> PDR 1.</li>
+        <li><strong>22 de enero:</strong> PDR 2.</li>
+        <li><strong>29 de enero:</strong> PDR 3.</li>
+        <li><strong>5 de febrero:</strong> CDR 1.</li>
+        <li><strong>12 de febrero:</strong> CDR 2.</li>
+        <li><strong>26 de febrero:</strong> CDR 3.</li>
+        <li><strong>5 de marzo:</strong> CDR 4.</li>
+        <li><strong>12 de marzo:</strong> CDR 5 y cierre de la etapa de diseño.</li>
+        <li><strong>12 de marzo:</strong> Design Freeze.</li>
+    </ul>
+
+    <h3>Marzo – Abril 2027: Fabricación y adquisición</h3>
+
+    <ul>
+        <li>Fabricación de PCBs y piezas.</li>
+        <li>Adquisición de componentes.</li>
+        <li>Preparación de cableado y sistemas electrónicos.</li>
+        <li>Construcción de subsistemas.</li>
+    </ul>
+
+    <h3>Mayo 2027: Pruebas individuales</h3>
+
+    <ul>
+        <li>Pruebas de cada subsistema.</li>
+        <li>Validación de electrónica.</li>
+        <li>Validación de actuadores y sensores.</li>
+        <li>Pruebas de software.</li>
+    </ul>
+
+    <h3>Junio 2027: Integración</h3>
+
+    <ul>
+        <li>Integración de los diferentes subsistemas.</li>
+        <li>Pruebas de comunicación.</li>
+        <li>Pruebas de operación conjunta.</li>
+        <li><strong>15 de junio:</strong> Rover funcional.</li>
+    </ul>
+
+    <h3>Julio 2027: Pruebas y validación final</h3>
+
+    <ul>
+        <li>Pruebas de las misiones.</li>
+        <li>Pruebas de seguridad.</li>
+        <li>Validación de procedimientos.</li>
+        <li>Pruebas de operación completa.</li>
+        <li>Corrección de fallas encontradas durante las pruebas.</li>
+        <li><strong>31 de julio:</strong> Freeze final del rover.</li>
+    </ul>
+
+    <h3>Agosto 2027: Preparación y competencia</h3>
+
+    <ul>
+        <li><strong>1–2 de agosto:</strong> Inspección y revisión final.</li>
+        <li><strong>3 de agosto:</strong> Inventario y empaquetado.</li>
+        <li><strong>4–5 de agosto:</strong> Logística y viaje.</li>
+        <li><strong>6 de agosto:</strong> Canadian International Rover Challenge 2027.</li>
+    </ul>
+
+</div>
+
+    <!-- PESTAÑA SEGUIMIENTO DE ENTREGABLES -->
+    <div id="entregables" class="tab-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>Seguimiento de Entregables</h2>
+        <button class="fc-button-primary" style="border:none; padding: 8px 16px; border-radius: 8px; cursor:pointer;" onclick="resetDeliverables()">Resetear Cambios</button>
+      </div>
+      
+      <div id="tablesContainer">
+          <!-- Renderizado dinamicamente por JS en multiples tablas -->
+        </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Cronograma actualizado!</div>
+
+  <script>
+    // ESTADO INICIAL
+const initialDeliverables = [
+    // =========================
+    // SEPTIEMBRE 2026
+    // =========================
+    {
+        id: "w1_arch_1",
+        title: "Análisis de requerimientos",
+        date: "2026-09-18",
+        area: "General",
+        description: "Identificación y análisis de los requerimientos de la competencia y del rover."
+    },
+    {
+        id: "w1_arch_2",
+        title: "Análisis de misiones",
+        date: "2026-09-19",
+        area: "General",
+        description: "Análisis de las misiones y necesidades técnicas asociadas."
+    },
+    {
+        id: "w1_arch_3",
+        title: "Requerimientos del sistema",
+        date: "2026-09-20",
+        area: "General",
+        description: "Definición de requerimientos funcionales y técnicos del rover."
+    },
+
+    // =========================
+    // OCTUBRE 2026
+    // =========================
+    {
+        id: "w2_1",
+        title: "Estudios conceptuales",
+        date: "2026-09-23",
+        area: "General",
+        description: "Desarrollo y comparación de conceptos para los diferentes subsistemas."
+    },
+    {
+        id: "w2_2",
+        title: "Conceptos preliminares",
+        date: "2026-09-23",
+        area: "General",
+        description: "Definición de propuestas preliminares de solución."
+    },
+    {
+        id: "w2_3",
+        title: "Selección de conceptos",
+        date: "2026-09-25",
+        area: "General",
+        description: "Evaluación y selección de los conceptos a desarrollar."
+    },
+    {
+        id: "w2_4",
+        title: "Cierre de estudios conceptuales",
+        date: "2026-09-27",
+        area: "General",
+        description: "Finalización interna de los estudios conceptuales."
+    },
+
+    {
+        id: "w3_1",
+        title: "Desarrollo de arquitectura",
+        date: "2026-09-30",
+        area: "General",
+        description: "Desarrollo de la arquitectura general del rover."
+    },
+    {
+        id: "w3_2",
+        title: "Arquitectura de subsistemas",
+        date: "2026-10-02",
+        area: "General",
+        description: "Definición de la arquitectura de los diferentes subsistemas."
+    },
+    {
+        id: "w3_3",
+        title: "Integración de arquitectura",
+        date: "2026-10-02",
+        area: "General",
+        description: "Integración de las arquitecturas de los diferentes subsistemas."
+    },
+    {
+        id: "w3_4",
+        title: "Revisión de arquitectura",
+        date: "2026-10-04",
+        area: "General",
+        description: "Revisión de la arquitectura propuesta."
+    },
+
+    {
+        id: "w4_1",
+        title: "Primer avance formal",
+        date: "2026-10-08",
+        area: "General",
+        description: "Preparación del primer avance formal del proyecto."
+    },
+    {
+        id: "w4_2",
+        title: "Documentación de conceptos",
+        date: "2026-10-08",
+        area: "General",
+        description: "Documentación de los conceptos y decisiones iniciales."
+    },
+    {
+        id: "w4_3",
+        title: "Primera entrega",
+        date: "2026-10-10",
+        area: "General",
+        description: "Primera entrega formal del proyecto."
+    },
+
+    // =========================
+    // OCTUBRE - NOVIEMBRE 2026
+    // =========================
+    {
+        id: "w5_1",
+        title: "Definición de arquitectura",
+        date: "2026-10-14",
+        area: "General",
+        description: "Consolidación de la arquitectura seleccionada."
+    },
+    {
+        id: "w5_2",
+        title: "Revisión de interfaces",
+        date: "2026-10-15",
+        area: "General",
+        description: "Definición y revisión de interfaces entre subsistemas."
+    },
+    {
+        id: "w5_3",
+        title: "Architecture Freeze",
+        date: "2026-10-17",
+        area: "General",
+        description: "Congelamiento de la arquitectura del sistema."
+    },
+
+    {
+        id: "w6_1",
+        title: "Diseño preliminar",
+        date: "2026-10-21",
+        area: "General",
+        description: "Inicio del desarrollo de los diseños preliminares."
+    },
+    {
+        id: "w6_2",
+        title: "Revisión de diseño preliminar",
+        date: "2026-10-22",
+        area: "General",
+        description: "Revisión de los diseños preliminares de los subsistemas."
+    },
+    {
+        id: "w6_3",
+        title: "Cierre de diseño preliminar",
+        date: "2026-10-24",
+        area: "General",
+        description: "Cierre de la etapa de diseño preliminar."
+    },
+
+    {
+        id: "w7_1",
+        title: "Inventario de electrónica",
+        date: "2026-10-28",
+        area: "Electrónica",
+        description: "Preparación y revisión del inventario de componentes electrónicos."
+    },
+    {
+        id: "w7_2",
+        title: "Validación de inventario",
+        date: "2026-10-29",
+        area: "Electrónica",
+        description: "Validación de componentes disponibles y faltantes."
+    },
+    {
+        id: "w7_3",
+        title: "Inventario de electrónica final",
+        date: "2026-10-31",
+        area: "Electrónica",
+        description: "Cierre del inventario de electrónica."
+    },
+
+    // =========================
+    // NOVIEMBRE 2026
+    // =========================
+    {
+        id: "w8_1",
+        title: "Desarrollo de diseño detallado",
+        date: "2026-11-05",
+        area: "General",
+        description: "Desarrollo del diseño detallado de los subsistemas."
+    },
+    {
+        id: "w8_2",
+        title: "Revisión de diseño detallado",
+        date: "2026-11-07",
+        area: "General",
+        description: "Revisión de avances del diseño detallado."
+    },
+
+    {
+        id: "w9_1",
+        title: "Integración de diseños",
+        date: "2026-11-12",
+        area: "General",
+        description: "Integración de los diseños de los diferentes subsistemas."
+    },
+    {
+        id: "w9_2",
+        title: "Revisión de interfaces",
+        date: "2026-11-14",
+        area: "General",
+        description: "Validación de interfaces entre subsistemas."
+    },
+    {
+        id: "w9_3",
+        title: "Validación de diseño",
+        date: "2026-11-14",
+        area: "General",
+        description: "Validación del diseño previo a la documentación final."
+    },
+
+    {
+        id: "w10_1",
+        title: "Documentación técnica",
+        date: "2026-11-18",
+        area: "General",
+        description: "Desarrollo de la documentación técnica del diseño."
+    },
+    {
+        id: "w10_2",
+        title: "Revisión de documentación",
+        date: "2026-11-21",
+        area: "General",
+        description: "Revisión de la documentación técnica."
+    },
+
+    {
+        id: "w11_1",
+        title: "Preparación de BOM",
+        date: "2026-11-25",
+        area: "Electrónica",
+        description: "Preparación de la lista de materiales a partir del inventario y los diseños."
+    },
+    {
+        id: "w11_2",
+        title: "Consolidación de BOM",
+        date: "2026-11-28",
+        area: "Electrónica",
+        description: "Consolidación de componentes existentes y componentes requeridos."
+    },
+
+    // =========================
+    // DICIEMBRE 2026
+    // =========================
+    {
+        id: "w12_1",
+        title: "BOM final",
+        date: "2026-12-02",
+        area: "Electrónica",
+        description: "Revisión final de la lista de materiales."
+    },
+    {
+        id: "w12_2",
+        title: "BOM + propuestas conceptuales",
+        date: "2026-12-04",
+        area: "General",
+        description: "Entrega de BOM consolidada y propuestas derivadas de los estudios conceptuales."
+    },
+
+    {
+        id: "w13_1",
+        title: "Preparación PDR",
+        date: "2026-12-11",
+        area: "General",
+        description: "Preparación de la documentación para la revisión preliminar de diseño."
+    },
+    {
+        id: "w13_2",
+        title: "PDR 0",
+        date: "2026-12-12",
+        area: "General",
+        description: "Primera revisión preliminar de diseño."
+    },
+
+    // =========================
+    // ENERO 2027
+    // =========================
+    {
+        id: "w14_1",
+        title: "PDR 1",
+        date: "2027-01-15",
+        area: "General",
+        description: "Primera revisión preliminar de diseño del periodo."
+    },
+    {
+        id: "w14_2",
+        title: "PDR 2",
+        date: "2027-01-22",
+        area: "General",
+        description: "Segunda revisión preliminar de diseño."
+    },
+    {
+        id: "w14_3",
+        title: "PDR 3",
+        date: "2027-01-29",
+        area: "General",
+        description: "Tercera revisión preliminar de diseño."
+    }
 ];
 
     let deliverables = JSON.parse(localStorage.getItem('circ_deliverables')) || initialDeliverables;
